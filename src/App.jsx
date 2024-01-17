@@ -36,6 +36,7 @@ function App() {
   return (
     <>
       <div className="ip-input-container">
+        <h1>IP Address Tracker</h1>
         <IPForm getIPDetails={getIPDetails} />
         <IPInfo displayIPDetails={IPDetails} />
       </div>

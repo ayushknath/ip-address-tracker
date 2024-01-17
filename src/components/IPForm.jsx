@@ -46,7 +46,7 @@ const IPForm = ({ getIPDetails }) => {
         onChange={handleChange}
         value={formData}
       />
-      <button>
+      <button aria-label="Search IP">
         <img src={SubmitButton} alt="Submit button" />
       </button>
     </form>

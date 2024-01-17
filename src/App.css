@@ -6,12 +6,146 @@
   box-sizing: border-box;
 }
 
+:root {
+  --br-core: 0.75rem;
+  --darkGrey: hsl(0, 0%, 59%);
+  --veryDarkGrey: hsl(0, 0%, 17%);
+}
+
 body,
 input {
   font-family: "Poppins", sans-serif;
 }
 
 #map {
-  height: 300px;
+  height: calc(100vh - 40vh);
+  width: 100vw;
+}
+
+.ip-input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  height: 40vh;
+  padding-block: 2rem;
+  background: url("./assets/pattern-bg-desktop.png") no-repeat center center;
+  background-size: cover;
+}
+
+.ip-input-container h1 {
+  color: white;
+}
+
+.input-form {
+  display: flex;
+  align-items: center;
+}
+
+.input-form input {
+  border: 0;
+  outline: 0;
   width: 500px;
+  padding: 1rem;
+  font-size: 1rem;
+  border-top-left-radius: var(--br-core);
+  border-bottom-left-radius: var(--br-core);
+}
+
+.input-form button {
+  outline: 0;
+  border: 0;
+  display: grid;
+  place-items: center;
+  padding: 1.3rem 1.25rem;
+  cursor: pointer;
+  border-top-right-radius: var(--br-core);
+  border-bottom-right-radius: var(--br-core);
+  background-color: black;
+}
+
+.ip-info {
+  position: absolute;
+  bottom: -4rem;
+  left: 50%;
+  z-index: 1000;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 2rem;
+  width: max-content;
+  padding: 2rem;
+  border-radius: var(--br-core);
+  background-color: white;
+}
+
+.ip-info > div:not(:last-child) {
+  padding-right: 2rem;
+  border-right: 1px solid var(--darkGrey);
+}
+
+.ip-info > div h4 {
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  color: var(--darkGrey);
+  letter-spacing: 1px;
+  font-size: 0.875rem;
+}
+
+.ip-info > div p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+@media (max-width: 832px) {
+  #map {
+    height: calc(150vh - 30vh);
+  }
+
+  .ip-input-container {
+    gap: 1rem;
+    height: 30vh;
+    padding-block: 1rem;
+  }
+
+  .ip-input-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .input-form {
+    width: 85vw;
+  }
+
+  .input-form input {
+    width: 100%;
+  }
+
+  .ip-info {
+    bottom: -19rem;
+    left: 50%;
+    grid-template: repeat(4, 1fr) / 1fr;
+    gap: 2rem;
+    width: 85vw;
+    padding: 1.25rem;
+  }
+
+  .ip-info > div {
+    text-align: center;
+  }
+
+  .ip-info > div:not(:last-child) {
+    padding-right: 0;
+    border-right: 0;
+  }
+
+  .ip-info > div h4 {
+    margin-bottom: 0.25rem;
+    font-size: 0.75rem;
+  }
+
+  .ip-info > div p {
+    font-size: 1.125rem;
+    font-weight: bold;
+  }
 }
