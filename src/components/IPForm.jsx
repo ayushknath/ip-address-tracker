@@ -14,7 +14,6 @@ const IPForm = ({ getIPDetails }) => {
         `https://geo.ipify.org/api/v2/country?apiKey=at_UCw3DOlfslQZ31EBVJV5kjFrCFvrG&ipAddress=${formData}&domain=${formData}`
       );
       const data = await response.json();
-      console.log(data);
       return data;
     } catch (error) {
       console.log(error);

@@ -11,12 +11,10 @@ function App() {
   async function getLatLng(region, country) {
     try {
       const response = await fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${region},${country}&limit=1&appid=caaa7b5e7b1a862b183dad699132eaed`
+        `https://us1.locationiq.com/v1/search?key=pk.b13317b292e8d9459f19a4ecd3dd9a81&q=${region},%20${country}&format=json&limit=1`
       );
       const data = await response.json();
-      const lat = Number(data[0].lat);
-      const lng = Number(data[0].lon);
-      return [lat, lng];
+      return [Number(data[0].lat), Number(data[0].lon)];
     } catch (error) {
       console.log("Error from getLatLng: " + error);
     }
@@ -30,7 +28,9 @@ function App() {
       timezone: timezone,
       isp: isp,
     });
-    getLatLng(region, country).then((response) => setCoords(response));
+    getLatLng(region, country)
+      .then((response) => setCoords(response))
+      .catch((error) => console.log(error));
   }
 
   return (
