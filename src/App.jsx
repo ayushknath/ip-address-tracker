@@ -6,7 +6,7 @@ import "./App.css";
 
 function App() {
   const [IPDetails, setIPDetails] = useState({});
-  const [coords, setCoords] = useState([]);
+  const [coords, setCoords] = useState([51.505, -0.09]);
 
   async function getLatLng(region, country) {
     try {
@@ -40,7 +40,7 @@ function App() {
         <IPForm getIPDetails={getIPDetails} />
         <IPInfo displayIPDetails={IPDetails} />
       </div>
-      <Map lat={coords[0] || 51.505} lng={coords[1] || -0.09} />
+      <Map lat={coords[0]} lng={coords[1]} />
     </>
   );
 }
