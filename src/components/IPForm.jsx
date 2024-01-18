@@ -20,7 +20,7 @@ const IPForm = ({ getIPDetails }) => {
     }
   }
 
-  async function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
     if (!formData) {
       return;
